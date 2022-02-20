@@ -1,0 +1,21 @@
+<dev class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+         <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+         <div class="card-body">
+           <h5 class="card-title"><%= @user.name %></h5>
+           <ul class="list-group list-group-flush">
+            <li class="list-group-item">投稿 : <%= @user.topics.count %></li>
+          </ul>
+         </div>
+      </div>
+    </div>
+    <div class="offset-md-2 col-md-7">
+      <h2>投稿</h2>
+      <% @topics.each do |topic| %>
+        <li><%= topic.title %></li>
+      <% end %>
+    </div>
+  </div>
+</dev>

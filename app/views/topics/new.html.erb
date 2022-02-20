@@ -1,0 +1,13 @@
+<div>
+  <%= form_with(model: @topic, local: true) do |f| %>
+    <div class="form-group">
+      タイトル
+      <%= f.text_field :title, class: 'form-control' %>
+      本文
+      <%= f.text_area :content, class: 'form-control', rows: 10 %>
+      ハッシュタグ
+      <%= f.text_area :hashbody, class: 'form-control' %>
+    </div>
+    <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+  <% end %>
+</div>

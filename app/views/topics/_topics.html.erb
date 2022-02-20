@@ -1,0 +1,18 @@
+<% if topics.any? %>
+  <ul class="list-unstyled">
+    <% topics.each do |topic| %>
+      <li class="media">
+        <img class="mr-2 rounded" src="<%= gravatar_url(topic.user, { size: 20 }) %>" alt="">
+        <div class="media-body">
+          <h5 class="mt-0"><%= topic.user.name %></h5>
+          <h2><%= link_to topic.title, topic %></h2>
+          <% topic.hashtags.each do |tag| %>
+            <li style="display: inline-block;"><%= "#" + tag.hashname %></li>
+            <li style="display: inline-block;"><%= link_to tag.hashname, tags_path(id: tag.id) %></li>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate topics %>
+<% end %>
